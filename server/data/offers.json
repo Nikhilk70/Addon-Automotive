@@ -1,0 +1,59 @@
+[
+  {
+    "id": "o1",
+    "code": "ADDON10",
+    "title": "Flat 10% off",
+    "description": "On all orders above Rs. 2,999",
+    "type": "percent",
+    "value": 10,
+    "minOrder": 2999,
+    "maxDiscount": 2000,
+    "validTill": "2026-12-16",
+    "active": true,
+    "accent": "red"
+  },
+  {
+    "id": "o2",
+    "code": "SOUND1500",
+    "title": "Rs. 1,500 off on Audio",
+    "description": "Android stereo or speaker orders above Rs. 9,999",
+    "type": "flat",
+    "value": 1500,
+    "minOrder": 9999,
+    "categoryIds": [
+      "android-stereo",
+      "speakers"
+    ],
+    "validTill": "2026-12-16",
+    "active": true,
+    "accent": "dark"
+  },
+  {
+    "id": "o3",
+    "code": "FIRSTRIDE",
+    "title": "Rs. 500 off first order",
+    "description": "Welcome offer on orders above Rs. 3,999",
+    "type": "flat",
+    "value": 500,
+    "minOrder": 3999,
+    "validTill": "2026-12-16",
+    "active": true,
+    "accent": "steel"
+  },
+  {
+    "id": "o4",
+    "code": "WHEELS30",
+    "title": "Up to 30% off Alloys",
+    "description": "Extra 5% off alloy wheel sets - this week only",
+    "type": "percent",
+    "value": 5,
+    "minOrder": 15000,
+    "maxDiscount": 3000,
+    "categoryIds": [
+      "alloy-wheels"
+    ],
+    "validTill": "2026-11-23",
+    "active": true,
+    "accent": "red"
+  }
+]

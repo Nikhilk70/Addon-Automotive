@@ -1,0 +1,125 @@
+[
+  {
+    "make": "Maruti Suzuki",
+    "models": [
+      "Swift",
+      "Baleno",
+      "Dzire",
+      "Brezza",
+      "Ertiga",
+      "Wagon R",
+      "Alto K10",
+      "Fronx",
+      "Grand Vitara",
+      "XL6",
+      "Ciaz",
+      "Celerio"
+    ]
+  },
+  {
+    "make": "Hyundai",
+    "models": [
+      "Creta",
+      "Venue",
+      "i20",
+      "Grand i10 Nios",
+      "Verna",
+      "Exter",
+      "Alcazar",
+      "Aura"
+    ]
+  },
+  {
+    "make": "Tata",
+    "models": [
+      "Nexon",
+      "Punch",
+      "Altroz",
+      "Harrier",
+      "Safari",
+      "Tiago",
+      "Tigor"
+    ]
+  },
+  {
+    "make": "Mahindra",
+    "models": [
+      "XUV700",
+      "XUV 3XO",
+      "Thar",
+      "Scorpio-N",
+      "Scorpio Classic",
+      "Bolero",
+      "XUV400"
+    ]
+  },
+  {
+    "make": "Kia",
+    "models": [
+      "Seltos",
+      "Sonet",
+      "Carens",
+      "Syros"
+    ]
+  },
+  {
+    "make": "Toyota",
+    "models": [
+      "Innova Crysta",
+      "Innova Hycross",
+      "Fortuner",
+      "Glanza",
+      "Urban Cruiser Hyryder",
+      "Hilux"
+    ]
+  },
+  {
+    "make": "Honda",
+    "models": [
+      "City",
+      "Amaze",
+      "Elevate",
+      "Jazz"
+    ]
+  },
+  {
+    "make": "Skoda",
+    "models": [
+      "Slavia",
+      "Kushaq",
+      "Kylaq",
+      "Octavia"
+    ]
+  },
+  {
+    "make": "Volkswagen",
+    "models": [
+      "Virtus",
+      "Taigun",
+      "Polo"
+    ]
+  },
+  {
+    "make": "MG",
+    "models": [
+      "Hector",
+      "Astor",
+      "ZS EV",
+      "Comet EV"
+    ]
+  },
+  {
+    "make": "Renault",
+    "models": [
+      "Kwid",
+      "Kiger",
+      "Triber"
+    ]
+  },
+  {
+    "make": "Nissan",
+    "models": [
+      "Magnite"
+    ]
+  }
+]

@@ -1,0 +1,74 @@
+[
+  {
+    "id": "android-stereo",
+    "name": "Android Stereo",
+    "image": "https://m.media-amazon.com/images/I/71xZMLaUgeL._UF1000,1000_QL80_.jpg",
+    "blurb": "Smart music systems with CarPlay & Android Auto"
+  },
+  {
+    "id": "speakers",
+    "name": "Speakers & Woofers",
+    "image": "https://m.media-amazon.com/images/I/91DZroew4dL.jpg",
+    "blurb": "High quality sound experience"
+  },
+  {
+    "id": "led-lights",
+    "name": "LED Lights",
+    "image": "https://m.media-amazon.com/images/I/61WXosxfoqL._UF1000,1000_QL80_.jpg",
+    "blurb": "Bright, efficient car lighting"
+  },
+  {
+    "id": "spoilers",
+    "name": "Spoilers",
+    "image": "https://m.media-amazon.com/images/I/71g90+wGBAS.jpg",
+    "blurb": "Sporty aerodynamic rear design"
+  },
+  {
+    "id": "side-skirts",
+    "name": "Side Skirts",
+    "image": "https://m.media-amazon.com/images/I/61NSn0VRbfL.jpg",
+    "blurb": "Stylish side body kits"
+  },
+  {
+    "id": "head-tail-lamps",
+    "name": "Head & Tail Lamps",
+    "image": "https://miro.medium.com/v2/1*vkpwB0spFMzSr9nmKF9-zw.jpeg",
+    "blurb": "Clear visibility for night driving"
+  },
+  {
+    "id": "alloy-wheels",
+    "name": "Alloy Wheels",
+    "image": "https://www.hottracks.in/wp-content/uploads/2021/09/kia-stinger-gt-wheels-tsw-silvano-gloss-black-rims-14-800X572.jpg",
+    "blurb": "Durable, stylish alloys"
+  },
+  {
+    "id": "seat-covers",
+    "name": "Seat Covers",
+    "image": "https://m.media-amazon.com/images/I/71G-g0HvoTL._UF1000,1000_QL80_.jpg",
+    "blurb": "Comfortable premium seat covers"
+  },
+  {
+    "id": "steering-covers",
+    "name": "Steering Covers",
+    "image": "https://m.media-amazon.com/images/I/61idZNIVOVL.jpg",
+    "blurb": "Grip-friendly steering covers"
+  },
+  {
+    "id": "fog-lamps",
+    "name": "Fog Lamps",
+    "image": "https://m.media-amazon.com/images/I/71etzl-9DKL.jpg",
+    "blurb": "Clear vision in fog and rain"
+  },
+  {
+    "id": "cool-films",
+    "name": "Sun Control Films",
+    "image": "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=1200&q=80",
+    "blurb": "Beat the heat, legally"
+  },
+  {
+    "id": "wheel-caps",
+    "name": "Wheel Cups & Covers",
+    "image": "https://www.hottracks.in/wp-content/uploads/2021/09/kia-stinger-gt-wheels-tsw-silvano-gloss-black-rims-14-800X572.jpg",
+    "blurb": "Fresh look for steel wheels"
+  }
+]
