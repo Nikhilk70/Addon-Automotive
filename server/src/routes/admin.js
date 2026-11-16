@@ -165,6 +165,38 @@ r.delete('/admin/products/:id', ah(async (req, res) => {
   res.json({ ok: true });
 }));
 
+// ---- Instagram reels shown on the homepage
+const mediaUrl = (v, field) => {
+  const s = str(v, field, { required: false, max: 500 });
+  if (s && !/^(https?:\/\/|\/)/.test(s)) throw new HttpError(400, `${field} must start with http(s):// or /`, { field });
+  return s;
+};
+function reelFromBody(b) {
+  return {
+    title: str(b.title, 'Title', { max: 100 }),
+    car: str(b.car, 'Car', { required: false, max: 60 }),
+    tag: str(b.tag, 'Tag', { required: false, max: 30 }),
+    video: mediaUrl(b.video, 'Video URL'),
+    poster: mediaUrl(b.poster, 'Poster image URL'),
+    instagramUrl: mediaUrl(b.instagramUrl, 'Instagram link'),
+    sort: int(b.sort ?? 0, 'Order', { min: 0, max: 9999 }),
+    active: b.active !== false,
+  };
+}
+r.get('/admin/reels', ah(async (_req, res) => {
+  res.json((await collection('reels').all()).sort((a, b) => (a.sort ?? 0) - (b.sort ?? 0)));
+}));
+r.post('/admin/reels', ah(async (req, res) => res.status(201).json(await collection('reels').insert(reelFromBody(req.body || {})))));
+r.put('/admin/reels/:id', ah(async (req, res) => {
+  const row = await collection('reels').update({ id: req.params.id }, reelFromBody(req.body || {}));
+  if (!row) throw new HttpError(404, 'Reel not found');
+  res.json(row);
+}));
+r.delete('/admin/reels/:id', ah(async (req, res) => {
+  if (!(await collection('reels').remove({ id: req.params.id }))) throw new HttpError(404, 'Reel not found');
+  res.json({ ok: true });
+}));
+
 // ---- Offers
 function offerFromBody(b) {
   return {

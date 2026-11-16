@@ -236,4 +236,34 @@ export const reviews = [
   { id: 'r4', productId: 'p017', name: 'Divya', rating: 5, title: 'Perfect fit', text: 'Fits my Creta perfectly, looks premium.', verified: true, createdAt: '2026-10-28T10:00:00.000Z' },
 ];
 
+// Reels from instagram.com/addonautomotive. Add each video file (download your
+// reel from Instagram, put the .mp4 in client/public/reels/) and set `video`
+// from the admin panel -> Reels. Cards without a video link to Instagram.
+const reel = (n, title, car, tag) => ({
+  id: `reel${String(n).padStart(2, '0')}`,
+  title,
+  car,
+  tag,
+  video: '',
+  poster: '',
+  instagramUrl: 'https://www.instagram.com/addonautomotive/reels/',
+  sort: n,
+  active: true,
+});
+
+export const reels = [
+  reel(1, 'Oncord + 4K dash cam installed', 'BMW X5', 'Electronics'),
+  reel(2, 'Global 50 sun control film', 'Toyota Fortuner', 'Films'),
+  reel(3, 'Global 50 films', 'Kia Sonet', 'Films'),
+  reel(4, 'Tri-colour projector fog lamps', 'Maruti Wagon R', 'Lighting'),
+  reel(5, 'Diamond P80 + Black Rock subwoofer', 'Honda City', 'Audio'),
+  reel(6, 'Tri-colour projector fog lamps', 'Maruti Zen Estilo', 'Lighting'),
+  reel(7, 'Vextron speakers - 30% offer', 'Offer', 'Audio'),
+  reel(8, 'Rear diffuser', 'Maruti Baleno', 'Body kit'),
+  reel(9, 'Side footsteps', 'Mahindra XUV700', 'Exterior'),
+  reel(10, 'Base model to automatic climate control', 'Hyundai Creta', 'Electronics'),
+  reel(11, 'Customised Fronx', 'Maruti Fronx', 'Full build'),
+  reel(12, 'Fully customised Fronx', 'Maruti Fronx', 'Full build'),
+];
+
 export const brands = ['JBL', 'Pioneer', 'Sony', 'Kenwood', 'Philips', '3M', 'Blaupunkt', 'Osram'];

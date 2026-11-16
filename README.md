@@ -48,6 +48,7 @@ The server prices every cart itself from the catalogue, so prices, coupons and s
 |---|---|
 | Phone, WhatsApp, address, hours, hero slides, services, slot times | `server/data/settings.json` |
 | Products, offers | Admin panel |
+| Instagram reels on the homepage | Put the .mp4 files in `client/public/reels/`, then set each reel's video to `/reels/name.mp4` in Admin, Reels. They autoplay muted and loop while on screen |
 | Categories, car makes/models, testimonials, brands | `server/data/*.json` |
 | Logo and poster | `client/public/images/` |
 | Your own product photos | put them in `client/public/images/` and use `/images/name.jpg` in the product's image URLs |

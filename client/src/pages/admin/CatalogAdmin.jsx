@@ -323,3 +323,126 @@ export function OffersAdmin() {
     </>
   );
 }
+
+function ReelForm({ reel, nextSort, onClose, onSaved }) {
+  const { toast } = useStore();
+  const [f, setF] = useState(() => ({
+    title: reel?.title || '', car: reel?.car || '', tag: reel?.tag || '',
+    video: reel?.video || '', poster: reel?.poster || '',
+    instagramUrl: reel?.instagramUrl || 'https://www.instagram.com/addonautomotive/reels/',
+    sort: reel?.sort ?? nextSort, active: reel?.active ?? true,
+  }));
+  const [busy, setBusy] = useState(false);
+  const [error, setError] = useState('');
+  const set = (k) => (e) => setF((x) => ({ ...x, [k]: e.target.type === 'checkbox' ? e.target.checked : e.target.value }));
+
+  const submit = async (e) => {
+    e.preventDefault();
+    setBusy(true);
+    setError('');
+    try {
+      const body = { ...f, sort: Number(f.sort) || 0 };
+      const saved = reel ? await api.put(`/admin/reels/${reel.id}`, body, { admin: true }) : await api.post('/admin/reels', body, { admin: true });
+      toast('Reel saved');
+      onSaved(saved);
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setBusy(false);
+    }
+  };
+
+  return (
+    <Modal title={reel ? 'Edit reel' : 'Add reel'} onClose={onClose}>
+      <form className="stack" onSubmit={submit}>
+        <div className="form-grid">
+          <label className="field full"><span>Caption</span><input className="input" value={f.title} onChange={set('title')} required placeholder="Projector fog lamps installed" /></label>
+          <label className="field"><span>Car</span><input className="input" value={f.car} onChange={set('car')} placeholder="Honda City" /></label>
+          <label className="field"><span>Tag</span><input className="input" value={f.tag} onChange={set('tag')} placeholder="Audio, Lighting, Films..." /></label>
+          <label className="field full"><span>Video file (MP4)</span>
+            <input className="input" value={f.video} onChange={set('video')} placeholder="/reels/fronx-build.mp4" />
+            <small>Download the reel from Instagram, put the .mp4 in client/public/reels/ and enter /reels/filename.mp4. Or paste a direct https link to an .mp4.</small>
+          </label>
+          {f.video && (
+            <div className="full">
+              <video src={f.video} muted autoPlay loop playsInline style={{ width: 140, aspectRatio: '9 / 16', objectFit: 'cover', borderRadius: 12, background: '#000' }} />
+            </div>
+          )}
+          <label className="field"><span>Cover image (optional)</span><input className="input" value={f.poster} onChange={set('poster')} placeholder="/reels/fronx-build.jpg" /></label>
+          <label className="field"><span>Instagram link</span><input className="input" value={f.instagramUrl} onChange={set('instagramUrl')} placeholder="https://www.instagram.com/reel/..." /></label>
+          <label className="field"><span>Order (lower shows first)</span><input className="input" type="number" min="0" value={f.sort} onChange={set('sort')} /></label>
+          <label className="check"><input type="checkbox" checked={f.active} onChange={set('active')} /> Show on homepage</label>
+        </div>
+        {error && <div className="form-error">{error}</div>}
+        <div className="row" style={{ justifyContent: 'flex-end' }}>
+          <button type="button" className="btn btn-outline" onClick={onClose}>Cancel</button>
+          <button className="btn btn-red" disabled={busy}>{busy && <Spinner />} Save reel</button>
+        </div>
+      </form>
+    </Modal>
+  );
+}
+
+export function ReelsAdmin() {
+  const { data, setData, error } = useAdmin('/admin/reels');
+  const { toast } = useStore();
+  const [editing, setEditing] = useState(null);
+  const withVideo = (data || []).filter((r) => r.video).length;
+
+  const remove = async (r) => {
+    if (!window.confirm(`Delete reel "${r.title}"?`)) return;
+    try {
+      await api.del(`/admin/reels/${r.id}`, { admin: true });
+      setData((d) => d.filter((x) => x.id !== r.id));
+      toast('Reel deleted');
+    } catch (e) {
+      toast(e.message, 'error');
+    }
+  };
+
+  return (
+    <>
+      <PageHead title="Instagram reels"><button className="btn btn-red btn-sm" onClick={() => setEditing('new')}><Plus size={16} /> Add reel</button></PageHead>
+      <p className="muted tiny" style={{ marginBottom: 12 }}>
+        Reels autoplay (muted, looping) on the homepage. {data && `${withVideo} of ${data.length} have a video; the rest show an Instagram card until you add one.`}
+      </p>
+      {error && <div className="form-error">{error}</div>}
+      <div className="card">
+        {!data ? <div className="card-pad"><Spinner /></div> : (
+          <div className="table-wrap">
+            <table className="table">
+              <thead><tr><th>#</th><th>Reel</th><th>Video</th><th>Status</th><th /></tr></thead>
+              <tbody>
+                {data.map((r) => (
+                  <tr key={r.id}>
+                    <td className="muted">{r.sort}</td>
+                    <td><strong>{r.title}</strong><br /><span className="muted tiny">{[r.car, r.tag].filter(Boolean).join(' | ')}</span></td>
+                    <td className="tiny">{r.video ? <span className="clamp1" style={{ maxWidth: 220 }}>{r.video}</span> : <StatusChip status="ready" label="No video yet" />}</td>
+                    <td><StatusChip status={r.active ? 'completed' : 'pending'} label={r.active ? 'Shown' : 'Hidden'} /></td>
+                    <td>
+                      <div className="row" style={{ gap: 4, justifyContent: 'flex-end' }}>
+                        <button className="icon-btn" onClick={() => setEditing(r)} aria-label={`Edit ${r.title}`}><Pencil size={16} /></button>
+                        <button className="icon-btn" onClick={() => remove(r)} aria-label={`Delete ${r.title}`}><Trash2 size={16} /></button>
+                      </div>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )}
+      </div>
+      {editing && (
+        <ReelForm
+          reel={editing === 'new' ? null : editing}
+          nextSort={(data || []).reduce((m, r) => Math.max(m, r.sort ?? 0), 0) + 1}
+          onClose={() => setEditing(null)}
+          onSaved={(saved) => {
+            setData((d) => (d.some((x) => x.id === saved.id) ? d.map((x) => (x.id === saved.id ? saved : x)) : [...d, saved]).sort((a, b) => a.sort - b.sort));
+            setEditing(null);
+          }}
+        />
+      )}
+    </>
+  );
+}

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { NavLink, Outlet, Link, useNavigate } from 'react-router-dom';
-import { LayoutDashboard, ShoppingCart, CalendarCheck, Package, BadgePercent, Inbox, LogOut, ExternalLink, Lock, Menu } from 'lucide-react';
+import { LayoutDashboard, ShoppingCart, CalendarCheck, Package, BadgePercent, Clapperboard, Inbox, LogOut, ExternalLink, Lock, Menu } from 'lucide-react';
 import { api, adminToken } from '../../lib/api';
 import { Spinner } from '../../components/ui';
 
@@ -45,6 +45,7 @@ const NAV = [
   { to: '/admin/bookings', label: 'Bookings', icon: CalendarCheck },
   { to: '/admin/products', label: 'Products', icon: Package },
   { to: '/admin/offers', label: 'Offers', icon: BadgePercent },
+  { to: '/admin/reels', label: 'Reels', icon: Clapperboard },
   { to: '/admin/enquiries', label: 'Enquiries', icon: Inbox },
 ];
 

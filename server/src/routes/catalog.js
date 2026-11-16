@@ -30,8 +30,15 @@ r.get('/home', ah(async (_req, res) => {
     offers: (await collection('offers').find((o) => o.active && (!o.validTill || o.validTill >= today))),
     testimonials: await collection('testimonials').all(),
     brands: await collection('brands').all(),
+    reels: await activeReels(),
   });
 }));
+
+async function activeReels() {
+  const rows = await collection('reels').find({ active: true });
+  return rows.sort((a, b) => (a.sort ?? 0) - (b.sort ?? 0));
+}
+r.get('/reels', ah(async (_req, res) => res.json(await activeReels())));
 
 r.get('/products', ah(async (req, res) => {
   const q = req.query;

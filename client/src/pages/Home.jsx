@@ -10,6 +10,7 @@ import { api } from '../lib/api';
 import { waLink, fmtDate } from '../lib/format';
 import ProductCard, { ProductGridSkeleton } from '../components/ProductCard';
 import VehicleSelector from '../components/VehicleSelector';
+import Reels from '../components/Reels';
 import { Img, Stars, Price, Countdown } from '../components/ui';
 
 function Hero() {
@@ -394,8 +395,9 @@ export default function Home() {
       <Offers offers={data?.offers} />
       <Brands brands={data?.brands} />
       <HowItWorks />
+      <Reels reels={data?.reels} />
       <Testimonials items={data?.testimonials} />
-      <InstaCta />
+      {!data?.reels?.length && <InstaCta />}
     </>
   );
 }

@@ -1,0 +1,135 @@
+[
+  {
+    "id": "reel01",
+    "title": "Oncord + 4K dash cam installed",
+    "car": "BMW X5",
+    "tag": "Electronics",
+    "video": "",
+    "poster": "",
+    "instagramUrl": "https://www.instagram.com/addonautomotive/reels/",
+    "sort": 1,
+    "active": true,
+    "updatedAt": "2026-11-16T11:42:47.577Z"
+  },
+  {
+    "id": "reel02",
+    "title": "Global 50 sun control film",
+    "car": "Toyota Fortuner",
+    "tag": "Films",
+    "video": "",
+    "poster": "",
+    "instagramUrl": "https://www.instagram.com/addonautomotive/reels/",
+    "sort": 2,
+    "active": true
+  },
+  {
+    "id": "reel03",
+    "title": "Global 50 films",
+    "car": "Kia Sonet",
+    "tag": "Films",
+    "video": "",
+    "poster": "",
+    "instagramUrl": "https://www.instagram.com/addonautomotive/reels/",
+    "sort": 3,
+    "active": true
+  },
+  {
+    "id": "reel04",
+    "title": "Tri-colour projector fog lamps",
+    "car": "Maruti Wagon R",
+    "tag": "Lighting",
+    "video": "",
+    "poster": "",
+    "instagramUrl": "https://www.instagram.com/addonautomotive/reels/",
+    "sort": 4,
+    "active": true
+  },
+  {
+    "id": "reel05",
+    "title": "Diamond P80 + Black Rock subwoofer",
+    "car": "Honda City",
+    "tag": "Audio",
+    "video": "",
+    "poster": "",
+    "instagramUrl": "https://www.instagram.com/addonautomotive/reels/",
+    "sort": 5,
+    "active": true
+  },
+  {
+    "id": "reel06",
+    "title": "Tri-colour projector fog lamps",
+    "car": "Maruti Zen Estilo",
+    "tag": "Lighting",
+    "video": "",
+    "poster": "",
+    "instagramUrl": "https://www.instagram.com/addonautomotive/reels/",
+    "sort": 6,
+    "active": true
+  },
+  {
+    "id": "reel07",
+    "title": "Vextron speakers - 30% offer",
+    "car": "Offer",
+    "tag": "Audio",
+    "video": "",
+    "poster": "",
+    "instagramUrl": "https://www.instagram.com/addonautomotive/reels/",
+    "sort": 7,
+    "active": true
+  },
+  {
+    "id": "reel08",
+    "title": "Rear diffuser",
+    "car": "Maruti Baleno",
+    "tag": "Body kit",
+    "video": "",
+    "poster": "",
+    "instagramUrl": "https://www.instagram.com/addonautomotive/reels/",
+    "sort": 8,
+    "active": true
+  },
+  {
+    "id": "reel09",
+    "title": "Side footsteps",
+    "car": "Mahindra XUV700",
+    "tag": "Exterior",
+    "video": "",
+    "poster": "",
+    "instagramUrl": "https://www.instagram.com/addonautomotive/reels/",
+    "sort": 9,
+    "active": true
+  },
+  {
+    "id": "reel10",
+    "title": "Base model to automatic climate control",
+    "car": "Hyundai Creta",
+    "tag": "Electronics",
+    "video": "",
+    "poster": "",
+    "instagramUrl": "https://www.instagram.com/addonautomotive/reels/",
+    "sort": 10,
+    "active": true
+  },
+  {
+    "id": "reel11",
+    "title": "Customised Fronx",
+    "car": "Maruti Fronx",
+    "tag": "Full build",
+    "video": "",
+    "poster": "",
+    "instagramUrl": "https://www.instagram.com/addonautomotive/reels/",
+    "sort": 11,
+    "active": true
+  },
+  {
+    "id": "reel12",
+    "title": "Fully customised Fronx",
+    "car": "Maruti Fronx",
+    "tag": "Full build",
+    "video": "",
+    "poster": "",
+    "instagramUrl": "https://www.instagram.com/addonautomotive/reels/",
+    "sort": 12,
+    "active": true
+  }
+]

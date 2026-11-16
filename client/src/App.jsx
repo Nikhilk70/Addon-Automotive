@@ -8,7 +8,7 @@ import { OrderSuccess, TrackOrder } from './pages/Orders';
 import { Offers, BookInstallation, Wishlist, Contact, NotFound } from './pages/Info';
 import AdminLayout from './pages/admin/AdminLayout';
 import { Dashboard, OrdersAdmin, BookingsAdmin, EnquiriesAdmin } from './pages/admin/AdminPages';
-import { ProductsAdmin, OffersAdmin } from './pages/admin/CatalogAdmin';
+import { ProductsAdmin, OffersAdmin, ReelsAdmin } from './pages/admin/CatalogAdmin';
 
 export default function App() {
   return (
@@ -34,6 +34,7 @@ export default function App() {
           <Route path="bookings" element={<BookingsAdmin />} />
           <Route path="products" element={<ProductsAdmin />} />
           <Route path="offers" element={<OffersAdmin />} />
+          <Route path="reels" element={<ReelsAdmin />} />
           <Route path="enquiries" element={<EnquiriesAdmin />} />
         </Route>
       </Routes>

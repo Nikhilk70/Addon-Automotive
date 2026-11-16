@@ -15,6 +15,7 @@ const files = {
   testimonials: seed.testimonials,
   reviews: seed.reviews,
   brands: seed.brands,
+  reels: seed.reels,
   orders: [],
   bookings: [],
   enquiries: [],
