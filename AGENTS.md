@@ -1,24 +1,24 @@
 # Notes for AI coding agents
 
-Read [README.md](README.md) first. It describes every feature, the API, the data models, business rules, the roadmap and known issues.
+Read [README.md](README.md) first. It describes every feature, how the in-browser "backend" works, business rules, data, the roadmap and known issues.
 
 ## Project in one line
-An online store and fitment-booking site for **Addon Automotive** (car accessories, India). React + Vite frontend in `client/`, Express backend in `server/`, JSON-file storage in `server/data/`.
+A **frontend-only demo** of an online store and fitment-booking site for **Addon Automotive** (car accessories, India). React + Vite, hosted on GitHub Pages. There is no server: `src/mock/` runs the store logic in the browser and stores data in localStorage.
 
 ## Run
-`npm run install:all`, then `cp server/.env.example server/.env`, then `npm run dev`. The site is on :5173 and the API on :5000. Admin is at `/admin`.
+`npm install`, then `npm run dev` (http://localhost:5173). Admin is at `/#/admin`, password `addon@admin123`. `npm run build` outputs to `dist/`. Pushing to `main` deploys via `.github/workflows/deploy.yml`.
 
 ## Rules
-- **Storage:** all reads and writes go through `server/src/db/jsonStore.js` (`collection(name)`). Never read or write `server/data/*.json` directly from routes. This keeps the planned move to MongoDB or PostgreSQL to a change in one file.
-- **Prices are computed on the server** (`server/src/utils/pricing.js`). Never trust prices, totals or discounts sent by the browser.
-- **Validate every input** with the helpers in `server/src/utils/http.js`, and throw `HttpError(status, message)` for client errors.
-- **Seed data:** if you add a new collection, add it to `seedData.js` and `reset.js`. Missing files are created on server start.
-- **React:** a `useEffect` callback must return nothing or a cleanup function. Always use braces. A one-line arrow that returns a value crashed the app before.
-- **Styling:** plain CSS with tokens in `client/src/styles/base.css`. Reuse the existing classes (`.btn-*`, `.card`, `.display`, `.slash-tag`, `.chip-*`). Keep the black and red brand and the Barlow Condensed italic headings. Don't add a UI framework.
-- **Indian context:** prices in INR via `inr()` in `client/src/lib/format.js`, 10-digit mobiles starting 6-9, 6-digit pincodes, IST for slots.
-- **Privacy:** don't commit real customer data (`orders`, `bookings`, `enquiries`, `subscribers` JSON should stay empty in git). Never commit `server/.env`.
-- **Content facts:** phone numbers, Instagram handle, the EMI partner (Bajaj Finserv) and the sale come from the owner's poster. Don't invent business details such as the address or email; leave placeholders.
-- **Before finishing a change:** run `npm run build`, and check the affected page in a browser at desktop and around 390px width.
+- **Data access:** the UI calls only `api.*` from `src/lib/api.js`, and all data goes through `collection()` in `src/mock/store.js`. Don't read or write localStorage `addon_db_v1:*` keys anywhere else. This keeps a future real backend a swap of `api.js` alone.
+- **Business logic lives in `src/mock/`** (pricing, coupons, slots, orders), not in components. Totals always come from `/cart/quote`.
+- **Validate inputs** with the helpers in `src/mock/http.js`; throw `HttpError(status, message)`.
+- **Seed changes:** edit `src/mock/seed.js`. Returning visitors keep their old copy, so bump `PREFIX` in `store.js` when the seed must reach everyone.
+- **GitHub Pages:** keep `HashRouter` and `base: './'`. Reference public files with `asset('images/x.png')` from `src/lib/format.js`, never a bare `"/images/..."` string in JSX.
+- **React:** a `useEffect` callback must return nothing or a cleanup function. Always use braces.
+- **Styling:** plain CSS with tokens in `src/styles/base.css`. Reuse the existing classes (`.btn-*`, `.card`, `.display`, `.slash-tag`, `.chip-*`). Keep the black and red brand and the Barlow Condensed italic headings. No UI framework.
+- **Indian context:** INR via `inr()`, 10-digit mobiles starting 6-9, 6-digit pincodes, IST slots.
+- **Content facts:** phones, Instagram, Bajaj Finserv EMI and the sale come from the owner's poster. Don't invent the address, email or other business facts. Products and reviews are sample data.
+- **Before finishing a change:** run `npm run build`, and check the page at desktop and around 390px width, ideally also under a sub-path (`/Addon-Automotive/`) via `npm run preview`.
 
-## Open work (see README section 13)
-Reel video files, Razorpay integration, WhatsApp Business API notifications, a real database, Render deployment, real product photos and catalogue.
+## Open work (see README section 14)
+Real backend and database, reel video files, Razorpay, WhatsApp Business API, real catalogue and photos, store address.
